@@ -26,8 +26,8 @@ export const ProfileOrders: FC = () => {
     dispatch(fetchProfileOrders);
 
     const ws = new WebSocket(getProfileOrdersWsUrl());
-    ws.onmessage = (e) => {
-      const data = JSON.parse(e.data);
+    ws.onmessage = (event) => {
+      const data = JSON.parse(event.data);
 
       if (data.success) dispatch(updateProfileOrders(data.orders));
     };
