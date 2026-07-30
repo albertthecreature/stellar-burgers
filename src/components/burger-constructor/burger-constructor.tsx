@@ -21,19 +21,20 @@ export const BurgerConstructor: FC = () => {
   const orderRequest = useSelector(selectOrderRequest);
   const orderModalData = useSelector(selectOrderModalData);
   const isAuthenticated = useSelector(selectIsAuthenticated);
-
-  const onOrderClick = () => {
-    if (!constructorItems.bun || orderRequest) return;
-  };
-
   const price = useSelector(selectConstructorPrice);
 
-  if (!isAuthenticated) {
-    navigate('/login', { state: { from: location } });
-    return;
-  }
+  const onOrderClick = () => {
+    if (!constructorItems.bun) return;
 
-  dispatch(createOrder());
+    if (!isAuthenticated) {
+      navigate('/login', { state: { from: location } });
+      return;
+    }
+
+    if (!orderRequest) {
+      dispatch(createOrder());
+    }
+  };
 
   const handleCloseOrderModal = () => dispatch(closeOrderModal());
 

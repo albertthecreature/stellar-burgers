@@ -22,7 +22,8 @@ export const ProtectedRoute: FC<TProtectedRouteProps> = ({
   }
 
   if (onlyUnAuth && isAuthenticated) {
-    return <Navigate to='/' replace />;
+    const from = location.state?.from?.pathname || '/';
+    return <Navigate to={from} replace />;
   }
 
   if (!onlyUnAuth && !isAuthenticated) {

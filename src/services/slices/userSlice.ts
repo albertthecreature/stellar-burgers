@@ -38,10 +38,6 @@ const clearTokens = () => {
 export const checkUserAuth = createAsyncThunk(
   'user/checkAuth',
   async (_, { rejectWithValue }) => {
-    if (!getCookie('accessToken')) {
-      return null;
-    }
-
     try {
       const data = await getUserApi();
 

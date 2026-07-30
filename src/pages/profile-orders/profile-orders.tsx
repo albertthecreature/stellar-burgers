@@ -23,7 +23,7 @@ export const ProfileOrders: FC = () => {
   const error = useSelector(selectProfileOrdersError);
 
   useEffect(() => {
-    dispatch(fetchProfileOrders);
+    dispatch(fetchProfileOrders());
 
     const ws = new WebSocket(getProfileOrdersWsUrl());
     ws.onmessage = (event) => {
