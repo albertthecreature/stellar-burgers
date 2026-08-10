@@ -19,3 +19,12 @@
   height: 100%;
   overflow: hidden;
 }
+
+.message {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.error {
+  color: #e52b1a;
+}
