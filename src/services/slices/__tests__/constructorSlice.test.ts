@@ -71,7 +71,7 @@ describe('constructorReducer', () => {
     const state = constructorReducer(initialState, addIngredient(mockMain));
 
     expect(state.bun).toBeNull();
-    expect(state.ingredients).toEqual({ ...mockMain, id: 'test-uuid' });
+    expect(state.ingredients).toEqual([{ ...mockMain, id: 'test-uuid' }]);
   });
 
   test('Обрабатывает removeIngredient', () => {

@@ -75,7 +75,9 @@ export const { updateFeedData } = feedSlice.actions;
 
 export default feedSlice.reducer;
 
-export const getFeedWsUrl = (): string =>
-  process.env
-    .BURGER_API_URL!.replace(/^https/, 'wss')
-    .replace(/\/api$/, '/orders');
+export const getFeedWsUrl = (): string => {
+  const apiUrl = process.env.BURGER_API_URL;
+
+  if (!apiUrl) throw new Error('BURGER_API_URL is not defined');
+  return apiUrl.replace(/^https/, 'wss').replace(/\/api$/, '/orders');
+};

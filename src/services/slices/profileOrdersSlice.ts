@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import { getOrdersApi } from '@api';
+import { getOrdersApi } from '../../utils/burger-api';
 import { getCookie } from '../../utils/cookie';
 import { TOrder } from '@utils-types';
 import { getFeedWsUrl } from './feedSlice';
